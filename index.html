@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maddox Wolstencroft — Game Developer</title>
+  <meta name="description" content="Game developer portfolio — engines, games, and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="data-stream-canvas"></canvas>
+
+<div class="terminal">
+
+  <!-- ════════════════════════════════════════════════════
+       HERO
+       ════════════════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="boot-sequence">
+      <div class="line muted">[BOOT] Initializing system...</div>
+      <div class="line muted">[BOOT] Loading kernel modules.......... <span class="prompt">OK</span></div>
+      <div class="line muted">[BOOT] Mounting filesystem............. <span class="prompt">OK</span></div>
+      <div class="line muted">[BOOT] Starting network daemon......... <span class="prompt">OK</span></div>
+      <div class="line muted">[BOOT] Authenticating user............. <span class="prompt">OK</span></div>
+      <div class="line muted">[BOOT] Loading portfolio.exe........... <span class="prompt">OK</span></div>
+      <div class="line muted">[BOOT] Initializing database connection. <span class="prompt">OK</span></div>
+      <div class="line" id="boot-engines"></div>
+      <div class="line" id="boot-games"></div>
+      <div class="line" id="boot-education"></div>
+      <div class="line">&nbsp;</div>
+    </div>
+
+    <!-- Desktop ASCII art -->
+<pre class="ascii-logo ascii-desktop" aria-hidden="true">
+ __  __    _    ____  ____   _____  __
+|  \/  |  / \  |  _ \|  _ \ / _ \ \/ /
+| |\/| | / _ \ | | | | | | | | | \  /
+| |  | |/ ___ \| |_| | |_| | |_| /  \
+|_|  |_/_/   \_\____/|____/ \___/_/\_\
+ __        _____  _     ____ _____ _____ _   _  ____ ____   ___  _____ _____
+ \ \      / / _ \| |   / ___|_   _| ____| \ | |/ ___|  _ \ / _ \|  ___|_   _|
+  \ \ /\ / / | | | |   \___ \ | | |  _| |  \| | |   | |_) | | | | |_    | |
+   \ V  V /| |_| | |___ ___) || | | |___| |\  | |___|  _ &lt;| |_| |  _|   | |
+    \_/\_/  \___/|_____|____/ |_| |_____|_| \_|\____|_| \_\\___/|_|     |_|
+</pre>
+
+    <!-- Mobile compact version -->
+    <div class="ascii-logo ascii-mobile" aria-hidden="true">
+      <div class="name-3d">MADDOX</div>
+      <div class="name-3d sub">WOLSTENCROFT</div>
+    </div>
+
+    <!-- Hero content with title and contact -->
+    <div class="hero-content">
+      <div class="hero-left">
+        <div style="margin-bottom: 8px;">
+          <span class="prompt">maddox@dev</span>:<span class="hl">~</span>$ <span class="cmd">whoami</span>
+          <br>
+          <span class="cmd" style="color:#fff; font-size: 18px; font-weight: 700;">Performance-Driven Game Engine Developer</span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="contact-box">
+          <div class="contact-label">
+            <span class="prompt">maddox@dev</span>:<span class="hl">~</span>$ <span class="cmd">cat ./contact.cfg</span>
+          </div>
+          <div class="contact-row">
+            <a class="contact-link glitch" href="https://linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener">
+              [&gt;] LinkedIn
+            </a>
+            <a class="contact-link glitch" href="mailto:your@email.com">
+              [&gt;] Email
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video showcase -->
+    <div style="margin-bottom: 12px;">
+      <span class="prompt">maddox@dev</span>:<span class="hl">~</span>$ <span class="cmd">cat ./druid-engine/demo.mp4</span>
+    </div>
+
+    <div class="hero-video-section">
+      <div class="video-label">[ DRUID ENGINE — REAL-TIME CAPTURE ]</div>
+
+      <!-- Uncomment when you have your recording:
+      <video autoplay muted loop playsinline>
+        <source src="druid-engine.mp4" type="video/mp4">
+      </video>
+      -->
+      <div class="placeholder">
+        // awaiting druid-engine.mp4
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      [ SCROLL TO CONTINUE ]<br>
+      v v v
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       ENGINES
+       ════════════════════════════════════════════════════ -->
+  <section class="section reveal" data-section="engines">
+    <div style="margin-bottom: 12px;">
+      <span class="prompt">maddox@dev</span>:<span class="hl">~</span>$ <span class="cmd">ls -la ./engines/</span>
+    </div>
+    <div class="divider">════════════════════════════════════════════════════════════════════════════════════════════════════</div>
+
+    <div class="engine-grid">
+      <div class="engine-card glitch">
+        <div class="engine-text">
+          <div class="entry-name">> druid_engine/</div>
+          <div class="entry-desc">C core engine with C++ editor, OpenGL rendering using data-oriented architecture for high-performance systems.</div>
+          <div class="entry-tags">
+            <span>C/C++</span>
+            <span>OpenGL</span>
+            <span>Data-Oriented</span>
+          </div>
+        </div>
+        <div class="engine-preview">
+          <img alt="Druid Engine">
+          <div class="preview-placeholder">[ img/druid-engine.jpg ]</div>
+        </div>
+      </div>
+
+      <div class="engine-card glitch">
+        <div class="engine-text">
+          <div class="entry-name">> division_engine/</div>
+          <div class="entry-desc">First C++ engine with custom graphics API drawing to bitmap directly to Windows module. Foundation for graphics programming mastery.</div>
+          <div class="entry-tags">
+            <span>C++</span>
+            <span>Custom Graphics API</span>
+            <span>Windows</span>
+          </div>
+        </div>
+        <div class="engine-preview">
+          <img alt="Division Engine">
+          <div class="preview-placeholder">[ img/division-engine.jpg ]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       GAMES
+       ════════════════════════════════════════════════════ -->
+  <section class="section reveal" data-section="games">
+    <div style="margin-bottom: 12px;">
+      <span class="prompt">maddox@dev</span>:<span class="hl">~</span>$ <span class="cmd">ls -la ./games/</span>
+    </div>
+    <div class="divider">════════════════════════════════════════════════════════════════════════════════════════════════════</div>
+
+    <div class="muted" style="font-size:12px; margin-bottom: 8px;">total 5 — drwxr-xr-x maddox dev</div>
+
+    <div class="game-row glitch">
+      <div class="game-text">
+        <span class="col-perm">drwxr-xr-x</span>
+        <span class="col-size">2.4G</span>
+        <span class="col-date">Mar 2026</span>
+        <span class="col-name">Swashducklers</span>
+        <span class="col-desc">Swashbuckling action on the high seas.</span>
+      </div>
+      <div class="game-preview">
+        <img alt="Swashducklers">
+        <div class="preview-placeholder">[ hover preview ]</div>
+      </div>
+    </div>
+
+    <div class="game-row glitch">
+      <div class="game-text">
+        <span class="col-perm">drwxr-xr-x</span>
+        <span class="col-size">1.8G</span>
+        <span class="col-date">Feb 2026</span>
+        <span class="col-name">Run Alcibiades Run!</span>
+        <span class="col-desc">Ancient Greek endless runner.</span>
+      </div>
+      <div class="game-preview">
+        <img alt="Run Alcibiades Run!">
+        <div class="preview-placeholder">[ hover preview ]</div>
+      </div>
+    </div>
+
+    <div class="game-row glitch">
+      <div class="game-text">
+        <span class="col-perm">drwxr-xr-x</span>
+        <span class="col-size">3.1G</span>
+        <span class="col-date">Jan 2026</span>
+        <span class="col-name">Space Man With A Space Plan</span>
+        <span class="col-desc">Interstellar strategy and exploration.</span>
+      </div>
+      <div class="game-preview">
+        <img alt="Space Man With A Space Plan">
+        <div class="preview-placeholder">[ hover preview ]</div>
+      </div>
+    </div>
+
+    <div class="game-row glitch">
+      <div class="game-text">
+        <span class="col-perm">drwxr-xr-x</span>
+        <span class="col-size">2.7G</span>
+        <span class="col-date">Dec 2025</span>
+        <span class="col-name">Dungeon Man With A Dungeon Plan</span>
+        <span class="col-desc">Procedural dungeon crawling.</span>
+      </div>
+      <div class="game-preview">
+        <img alt="Dungeon Man With A Dungeon Plan">
+        <div class="preview-placeholder">[ hover preview ]</div>
+      </div>
+    </div>
+
+    <div class="game-row glitch">
+      <div class="game-text">
+        <span class="col-perm">drwxr-xr-x</span>
+        <span class="col-size">1.5G</span>
+        <span class="col-date">Nov 2025</span>
+        <span class="col-name">Viva la antichriste corse</span>
+        <span class="col-desc">Revolutionary chaos unleashed.</span>
+      </div>
+      <div class="game-preview">
+        <img alt="Viva la antichriste corse">
+        <div class="preview-placeholder">[ hover preview ]</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       EDUCATION
+       ════════════════════════════════════════════════════ -->
+  <section class="section reveal" data-section="education">
+    <div style="margin-bottom: 12px;">
+      <span class="prompt">maddox@dev</span>:<span class="hl">~</span>$ <span class="cmd">cat /etc/education.conf</span>
+    </div>
+    <div class="divider">════════════════════════════════════════════════════════════════════════════════════════════════════</div>
+
+    <div class="entry">
+      <div class="entry-name">BSc (Hons) Computer Games Development</div>
+      <div style="color: var(--cyan); font-size: 14px; margin-top: 4px;">Stream: Software</div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════ -->
+  <div style="margin-top: 20px;">
+    <span class="prompt">maddox@dev</span>:<span class="hl">~</span>$ <span class="cursor">█</span>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2026 Maddox Wolstencroft // all systems operational
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
