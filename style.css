@@ -153,14 +153,15 @@ a:hover { color: #fff; text-shadow: 0 0 8px var(--cyan); }
 
 .hero-right {
   flex: 0 0 auto;
-  width: 300px;
+  width: 320px;
 }
 
 .contact-box {
   border: 1px solid var(--green-dd);
   background: rgba(0,255,65,.01);
-  padding: 16px 20px;
+  padding: 20px 28px;
   transition: border-color .25s, background .25s, box-shadow .25s;
+  min-width: 280px;
 }
 
 .contact-box:hover {
@@ -173,6 +174,7 @@ a:hover { color: #fff; text-shadow: 0 0 8px var(--cyan); }
   font-size: 12px;
   margin-bottom: 12px;
   color: var(--dim);
+  display: block;
 }
 
 .contact-row {
@@ -205,7 +207,7 @@ a:hover { color: #fff; text-shadow: 0 0 8px var(--cyan); }
 
 .ascii-desktop {
   color: #fff;
-  font-size: 25px;
+  font-size: 16px;
   line-height: 1.2;
   white-space: pre;
   text-shadow:
@@ -216,11 +218,30 @@ a:hover { color: #fff; text-shadow: 0 0 8px var(--cyan); }
     5px  5px  0 #004d14,
     6px  6px  0 #003310,
     7px  7px  12px rgba(0,0,0,.6);
+  margin-bottom: 12px;
 }
 
 /* ── 3D name (mobile) ────────────────────────────────── */
 .ascii-mobile {
   display: none;
+}
+
+/* ASCII Tagline */
+.ascii-tagline-text {
+  font-size: 14px;
+  color: var(--green);
+  font-family: var(--font);
+  font-weight: 600;
+  white-space: pre;
+  opacity: 0.9;
+  letter-spacing: 0.05em;
+  text-shadow:
+    1px  1px  0 #00aa2a,
+    2px  2px  0 #008822,
+    3px  3px  0 #006619,
+    4px  4px  0 #004d14,
+    5px  5px  0 #003310,
+    6px  6px  0 #002209;
 }
 
 .name-3d {
