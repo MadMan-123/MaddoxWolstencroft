@@ -257,7 +257,6 @@
   // Map game names to image paths
   const gameImages = {
     'Swashducklers': 'Portfolio/SwashDucklers (1).png',
-    'Run Alcibiades Run!': 'Portfolio/20 - 2025-02-24 19-24-27.mp4',
     'Space Man With A Space Plan': 'Portfolio/SpaceMan (1).png',
     'Dungeon Man With A Dungeon Plan': 'Portfolio/DungeonMan (1).PNG',
     'Viva la antichriste corse': 'Portfolio/VivaLaAntichristcorse (1).png'
@@ -354,14 +353,6 @@
         'Portfolio/SwashDucklers (9).png',
         'Portfolio/SwashDucklers (10).png',
         'Portfolio/SwashDucklers (11).png'
-      ]
-    },
-    alcibiades: {
-      name: 'RUN ALCIBIADES RUN!',
-      desc: 'Endless runner game set in ancient Greece. Features procedural level generation, power-ups, and ancient Greek mythology-inspired obstacles.',
-      tags: ['Endless Runner', 'Ancient Greece', 'Arcade'],
-      assets: [
-        'Portfolio/20 - 2025-02-24 19-24-27.mp4'
       ]
     },
     spaceman: {
@@ -503,6 +494,65 @@
     if (e.key === 'Escape') closeShowcase();
     if (e.key === 'ArrowLeft') galleryPrev.click();
     if (e.key === 'ArrowRight') galleryNext.click();
+  });
+
+  /* ── Preview Image Slideshow on Hover ───────────────– */
+  const slideshowState = {};
+
+  function startSlideshow(element, projectKey) {
+    if (!portfolioData[projectKey]) return;
+    
+    const assets = portfolioData[projectKey].assets;
+    if (assets.length <= 1) return; // No slideshow needed
+    
+    const previewImg = element.querySelector('img');
+    if (!previewImg) return;
+
+    let currentIndex = 0;
+    
+    // Filter to only images (not videos for preview)
+    const images = assets.filter(asset => !asset.toLowerCase().endsWith('.mp4'));
+    if (images.length === 0) return;
+
+    const interval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % images.length;
+      previewImg.src = images[currentIndex];
+    }, 600); // Change image every 600ms
+
+    slideshowState[projectKey] = interval;
+  }
+
+  function stopSlideshow(projectKey) {
+    if (slideshowState[projectKey]) {
+      clearInterval(slideshowState[projectKey]);
+      delete slideshowState[projectKey];
+    }
+  }
+
+  // Add slideshow to game rows
+  document.querySelectorAll('.game-row[data-project]').forEach((gameRow) => {
+    const projectKey = gameRow.dataset.project;
+    
+    gameRow.addEventListener('mouseenter', () => {
+      startSlideshow(gameRow, projectKey);
+    });
+    
+    gameRow.addEventListener('mouseleave', () => {
+      stopSlideshow(projectKey);
+    });
+  });
+
+  // Add slideshow to engine cards
+  document.querySelectorAll('.engine-card[data-project]').forEach((card) => {
+    const projectKey = card.dataset.project;
+    
+    card.addEventListener('mouseenter', () => {
+      startSlideshow(card, projectKey);
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      stopSlideshow(projectKey);
+    });
   });
 
   // Attach click handlers to project cards
