@@ -97,14 +97,13 @@ PERFORMANCE-DRIVEN GAME ENGINE DEVELOPER
 
     <div class="hero-video-section">
       <div class="video-label">[ DRUID ENGINE — REAL-TIME CAPTURE ]</div>
-
-      <!-- Uncomment when you have your recording:
-      <video autoplay muted loop playsinline>
-        <source src="druid-engine.mp4" type="video/mp4">
+      <video id="hero-video" autoplay muted loop playsinline>
+        <source src="Portfolio/DruidManyAsteroids.mp4" type="video/mp4">
       </video>
-      -->
-      <div class="placeholder">
-        // awaiting druid-engine.mp4
+      <div class="video-switcher">
+        <button class="video-btn active" data-video="Portfolio/DruidManyAsteroids.mp4" title="Asteroids">asteroids</button>
+        <button class="video-btn" data-video="Portfolio/DruidEngineManyZombies.mp4" title="Zombies">zombies</button>
+        <button class="video-btn" data-video="Portfolio/Druid.mp4" title="Demo">demo</button>
       </div>
     </div>
 
@@ -124,7 +123,7 @@ PERFORMANCE-DRIVEN GAME ENGINE DEVELOPER
     <div class="divider">════════════════════════════════════════════════════════════════════════════════════════════════════</div>
 
     <div class="engine-grid">
-      <div class="engine-card glitch">
+      <div class="engine-card glitch" data-project="druid">
         <div class="engine-text">
           <div class="entry-name">> druid_engine/</div>
           <div class="entry-desc">C core engine with C++ editor, OpenGL rendering using data-oriented architecture for high-performance systems.</div>
@@ -136,11 +135,11 @@ PERFORMANCE-DRIVEN GAME ENGINE DEVELOPER
         </div>
         <div class="engine-preview">
           <img alt="Druid Engine">
-          <div class="preview-placeholder">[ img/druid-engine.jpg ]</div>
+          <div class="preview-placeholder">[ click to view ]</div>
         </div>
       </div>
 
-      <div class="engine-card glitch">
+      <div class="engine-card glitch" data-project="division">
         <div class="engine-text">
           <div class="entry-name">> division_engine/</div>
           <div class="entry-desc">First C++ engine with custom graphics API drawing to bitmap directly to Windows module. Foundation for graphics programming mastery.</div>
@@ -152,7 +151,7 @@ PERFORMANCE-DRIVEN GAME ENGINE DEVELOPER
         </div>
         <div class="engine-preview">
           <img alt="Division Engine">
-          <div class="preview-placeholder">[ img/division-engine.jpg ]</div>
+          <div class="preview-placeholder">[ click to view ]</div>
         </div>
       </div>
     </div>
@@ -169,7 +168,7 @@ PERFORMANCE-DRIVEN GAME ENGINE DEVELOPER
 
     <div class="muted" style="font-size:12px; margin-bottom: 8px;">total 5 — drwxr-xr-x maddox dev</div>
 
-    <div class="game-row glitch">
+    <div class="game-row glitch" data-project="swashducklers">
       <div class="game-text">
         <span class="col-perm">drwxr-xr-x</span>
         <span class="col-size">2.4G</span>
@@ -179,11 +178,11 @@ PERFORMANCE-DRIVEN GAME ENGINE DEVELOPER
       </div>
       <div class="game-preview">
         <img alt="Swashducklers">
-        <div class="preview-placeholder">[ hover preview ]</div>
+        <div class="preview-placeholder">[ click to view ]</div>
       </div>
     </div>
 
-    <div class="game-row glitch">
+    <div class="game-row glitch" data-project="alcibiades">
       <div class="game-text">
         <span class="col-perm">drwxr-xr-x</span>
         <span class="col-size">1.8G</span>
@@ -193,11 +192,11 @@ PERFORMANCE-DRIVEN GAME ENGINE DEVELOPER
       </div>
       <div class="game-preview">
         <img alt="Run Alcibiades Run!">
-        <div class="preview-placeholder">[ hover preview ]</div>
+        <div class="preview-placeholder">[ click to view ]</div>
       </div>
     </div>
 
-    <div class="game-row glitch">
+    <div class="game-row glitch" data-project="spaceman">
       <div class="game-text">
         <span class="col-perm">drwxr-xr-x</span>
         <span class="col-size">3.1G</span>
@@ -207,11 +206,11 @@ PERFORMANCE-DRIVEN GAME ENGINE DEVELOPER
       </div>
       <div class="game-preview">
         <img alt="Space Man With A Space Plan">
-        <div class="preview-placeholder">[ hover preview ]</div>
+        <div class="preview-placeholder">[ click to view ]</div>
       </div>
     </div>
 
-    <div class="game-row glitch">
+    <div class="game-row glitch" data-project="dungeonman">
       <div class="game-text">
         <span class="col-perm">drwxr-xr-x</span>
         <span class="col-size">2.7G</span>
@@ -221,11 +220,11 @@ PERFORMANCE-DRIVEN GAME ENGINE DEVELOPER
       </div>
       <div class="game-preview">
         <img alt="Dungeon Man With A Dungeon Plan">
-        <div class="preview-placeholder">[ hover preview ]</div>
+        <div class="preview-placeholder">[ click to view ]</div>
       </div>
     </div>
 
-    <div class="game-row glitch">
+    <div class="game-row glitch" data-project="viva">
       <div class="game-text">
         <span class="col-perm">drwxr-xr-x</span>
         <span class="col-size">1.5G</span>
@@ -235,7 +234,7 @@ PERFORMANCE-DRIVEN GAME ENGINE DEVELOPER
       </div>
       <div class="game-preview">
         <img alt="Viva la antichriste corse">
-        <div class="preview-placeholder">[ hover preview ]</div>
+        <div class="preview-placeholder">[ click to view ]</div>
       </div>
     </div>
   </section>
@@ -260,6 +259,34 @@ PERFORMANCE-DRIVEN GAME ENGINE DEVELOPER
     <span class="prompt">maddox@dev</span>:<span class="hl">~</span>$ <span class="cursor">█</span>
   </div>
 
+  <!-- ════════════════════════════════════════════════════
+       SHOWCASE MODAL
+       ════════════════════════════════════════════════════ -->
+  <div id="showcase-modal" class="showcase-modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close showcase">&times;</button>
+      <div class="modal-header">
+        <div class="modal-title">
+          <span class="prompt">[</span><span id="modal-project-name">Project</span><span class="prompt">]</span>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-gallery">
+          <div id="gallery-container" class="gallery-container"></div>
+          <div class="gallery-nav">
+            <button class="gallery-prev" aria-label="Previous image">&lt;</button>
+            <span id="gallery-counter" class="gallery-counter">1 / 1</span>
+            <button class="gallery-next" aria-label="Next image">&gt;</button>
+          </div>
+        </div>
+        <div class="modal-info">
+          <div id="modal-tags" class="modal-tags"></div>
+          <div id="modal-description" class="modal-description"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <footer>
