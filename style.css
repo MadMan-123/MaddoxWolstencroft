@@ -526,18 +526,19 @@ a:hover { color: #fff; text-shadow: 0 0 8px var(--cyan); }
 
 .game-text {
   padding: 20px 24px;
-  display: flex;
-  align-items: baseline;
-  gap: 20px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto auto auto 1fr;
+  grid-template-rows: auto 1fr;
+  column-gap: 20px;
+  row-gap: 12px;
   font-size: 15px;
 }
 
-.game-text .col-perm   { color: var(--green-d); white-space: nowrap; font-size: 14px; }
-.game-text .col-size   { color: var(--dim); white-space: nowrap; font-size: 14px; }
-.game-text .col-date   { color: var(--dim); white-space: nowrap; font-size: 14px; }
-.game-text .col-name   { color: #fff; font-weight: 700; font-size: 16px; }
-.game-text .col-desc   { color: var(--dim); font-size: 13px; }
+.game-text .col-perm   { grid-column: 1; grid-row: 1; color: var(--green-d); white-space: nowrap; font-size: 14px; align-self: baseline; }
+.game-text .col-size   { grid-column: 2; grid-row: 1; color: var(--dim); white-space: nowrap; font-size: 14px; align-self: baseline; }
+.game-text .col-date   { grid-column: 3; grid-row: 1; color: var(--dim); white-space: nowrap; font-size: 14px; align-self: baseline; }
+.game-text .col-name   { grid-column: 4; grid-row: 1; color: #fff; font-weight: 700; font-size: 16px; align-self: baseline; }
+.game-text .col-desc   { grid-column: 1 / -1; grid-row: 2; color: var(--green); font-size: 13px; align-self: start; }
 
 .game-preview {
   border-left: 1px solid rgba(0,255,65,.06);
@@ -622,16 +623,17 @@ a:hover { color: #fff; text-shadow: 0 0 8px var(--cyan); }
 
 .skill-tags span {
   font-size: 13px;
-  color: #fff;
-  padding: 6px 12px;
+  color: var(--green);
+  padding: 6px 14px;
   border: 1px solid var(--green);
-  background: rgba(0,255,65,.1);
+  background: rgba(0,255,65,.06);
   transition: all .2s;
 }
 
 .skill-tags span:hover {
-  background: rgba(0,255,65,.2);
-  color: var(--green);
+  background: rgba(0,255,65,.18);
+  border-color: var(--green);
+  color: #fff;
 }
 
 /* ═══════════════════════════════════════════════════════

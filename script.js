@@ -256,7 +256,7 @@
   /* ── Game & Engine hover preview loading ──────────────────────────────────── */
   // Map game names to image paths
   const gameImages = {
-    'Swashducklers': 'Portfolio/SwashDucklers (1).png',
+    'Swashducklers': 'Portfolio/SyncOrSinkSwashducklers.png',
     'Space Man With A Space Plan': 'Portfolio/SpaceMan (1).png',
     'Dungeon Man With A Dungeon Plan': 'Portfolio/DungeonMan (1).PNG',
     'Viva la antichriste corse': 'Portfolio/VivaLaAntichristcorse (1).png'
@@ -310,7 +310,7 @@
   const portfolioData = {
     druid: {
       name: 'DRUID ENGINE',
-      desc: 'High-performance C core engine with C++ editor. Uses OpenGL rendering with a data-oriented architecture designed for extreme performance. Features include mesh rendering, physics systems, and real-time debugging capabilities.',
+      desc: 'A 3D C engine using OpenGL/SDL with data-oriented architecture achieving 3x faster physics at scale through layout-first design. Developed C++ IMGUI editor for archetype creation and code generation. Achieved single draw call per mesh and optimized SIMD utilization for vectorized math on SoA entities. Custom SSBO/UBO API with Assimp-based asset loading. Every optimization validated through profiling and benchmarking.',
       tags: ['C/C++', 'OpenGL', 'Data-Oriented', 'High-Performance'],
       assets: [
         'Portfolio/Druid 1 (1).png',
@@ -330,7 +330,7 @@
     },
     division: {
       name: 'DIVISION ENGINE',
-      desc: 'First C++ graphics engine built from scratch. Features a custom graphics API that draws directly to bitmap and interfaces with the Windows module. Foundation project for mastering graphics programming and low-level rendering.',
+      desc: 'Custom rendering application built from scratch in C++, bypassing terminal constraints to create a bitmap renderer with a bespoke graphics API. Demonstrates low-level systems understanding through Win32 module integration and forced bitmap rendering. Showcases graphics pipeline implementation at the hardware interface level.',
       tags: ['C++', 'Custom API', 'Windows', 'Graphics'],
       assets: [
         'Portfolio/Division (1).png',
@@ -339,9 +339,15 @@
     },
     swashducklers: {
       name: 'SWASHDUCKLERS',
-      desc: 'Swashbuckling action game set on the high seas. Features melee combat, ship mechanics, and ocean exploration with a pirate theme.',
+      desc: 'Professional co-op multiplayer game developed as project lead for a real client. Led team implementing Sync or Sink mechanics where players must synchronize to keep the ship afloat. Delivered real-time synchronization architecture through clear communication, shared ownership, and team trust. Managed sprint planning, task delegation, and client communication. Learned that healthy teams make better decisions and deliver better products.',
       tags: ['Action', 'Adventure', 'Completed'],
       assets: [
+        'https://www.youtube.com/embed/KtgHkzAqjjs',
+        'Portfolio/SyncOrSinkSwashducklers.png',
+        'Portfolio/SwashDucklers.png',
+        'Portfolio/Swashduckling.png',
+        'Portfolio/Swasher.png',
+        'Portfolio/swashduck.png',
         'Portfolio/SwashDucklers (1).png',
         'Portfolio/SwashDucklers (2).png',
         'Portfolio/SwashDucklers (3).png',
@@ -357,7 +363,7 @@
     },
     spaceman: {
       name: 'SPACE MAN WITH A SPACE PLAN',
-      desc: 'Interstellar exploration and strategy game. Navigate space, discover alien worlds, and manage resources. Features complex gameplay mechanics and strategic decision-making.',
+      desc: 'Side-scrolling space shooter with a top-down planet defence minigame — one ship against waves of enemies. Features a 1-vs-many planet combat mode alongside the main scrolling shooter campaign.',
       tags: ['Strategy', 'Exploration', 'Space'],
       assets: [
         'Portfolio/SpaceMan (1).png',
@@ -366,7 +372,7 @@
     },
     dungeonman: {
       name: 'DUNGEON MAN WITH A DUNGEON PLAN',
-      desc: 'Procedurally generated dungeon crawler. Features randomized level generation, classic RPG mechanics, and challenging combat encounters.',
+      desc: 'Procedurally generated 2D dungeon crawler. Survive each floor, follow the path to the boss at the end, defeat it, and descend into the next dungeon. Each run generates a new layout to explore.',
       tags: ['Dungeon Crawler', 'Procedural', 'RPG'],
       assets: [
         'Portfolio/DungeonMan (1).PNG',
@@ -405,8 +411,34 @@
   function createGalleryItem(assetPath) {
     const item = document.createElement('div');
     item.className = 'gallery-item';
-    
-    if (assetPath.toLowerCase().endsWith('.mp4')) {
+
+    if (assetPath.includes('youtube.com/embed') || assetPath.includes('youtu.be')) {
+      const videoId = assetPath.match(/(?:embed\/|youtu\.be\/)([^?&]+)/)?.[1];
+      const link = document.createElement('a');
+      link.href = `https://www.youtube.com/watch?v=${videoId}`;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.style.display = 'flex';
+      link.style.flexDirection = 'column';
+      link.style.alignItems = 'center';
+      link.style.justifyContent = 'center';
+      link.style.width = '100%';
+      link.style.height = '100%';
+      link.style.textDecoration = 'none';
+      const thumb = document.createElement('img');
+      thumb.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+      thumb.style.maxWidth = '100%';
+      thumb.style.maxHeight = '80%';
+      const label = document.createElement('div');
+      label.textContent = '[ WATCH ON YOUTUBE ]';
+      label.style.marginTop = '12px';
+      label.style.color = 'var(--green)';
+      label.style.fontFamily = "'JetBrains Mono', monospace";
+      label.style.fontSize = '14px';
+      link.appendChild(thumb);
+      link.appendChild(label);
+      item.appendChild(link);
+    } else if (assetPath.toLowerCase().endsWith('.mp4')) {
       const video = document.createElement('video');
       video.src = assetPath;
       video.controls = true;
@@ -421,7 +453,7 @@
       img.style.maxHeight = '100%';
       item.appendChild(img);
     }
-    
+
     return item;
   }
 
